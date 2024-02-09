@@ -56,4 +56,35 @@ class ParkingLot {
             }
         }
     }
+
+    public List<String> getRegistrationNumbersForColour(String colourSearch) {
+        List<String> registrationNumbers= new ArrayList<>();
+        for(ParkingSlot slot: parkingSlots){
+            Car car=slot.getCar();
+            if(car!=null && car.getColour().equalsIgnoreCase(colourSearch)){
+                registrationNumbers.add(car.getRegistrationNo());
+            }
+        }
+        return registrationNumbers;
+    }
+
+    public int getSlotNumberForRegistrationNumber(String registrationNumberQuery) {
+        for(ParkingSlot slot :parkingSlots){
+            Car car=slot.getCar();
+            if(car!=null && car.getRegistrationNo().equalsIgnoreCase(registrationNumberQuery)){
+                return  slot.getSlotNumber();
+            }
+        }
+        return -1;
+    }
+    public List<Integer> getSlotNumbersForColor(String color) {
+        List<Integer> slotNumbers = new ArrayList<>();
+        for (ParkingSlot slot : parkingSlots) {
+            Car car = slot.getCar();
+            if (car != null && car.getColour().equalsIgnoreCase(color)) {
+                slotNumbers.add(slot.getSlotNumber());
+            }
+        }
+        return slotNumbers;
+    }
 }
