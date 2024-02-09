@@ -19,6 +19,7 @@ public class Main {
                     parkingLot=new ParkingLot(parkingCapacity);
                     System.out.println("Created a parkinglot with "+parkingCapacity+" slots");
                     break;
+
                 case "park":
                     String registrationNumber=parts[1];
                     String color=parts[2];
@@ -28,6 +29,16 @@ public class Main {
                         System.out.println("Sorry, parking lot is full");
                     }else {
                         System.out.println("Allocated slot number: "+slotNumber);
+                    }
+                    break;
+
+                case "leave":
+                    int leaveSlotNumber=Integer.parseInt(parts[1]);
+                    boolean success= parkingLot.leave(leaveSlotNumber);
+                    if(success){
+                        System.out.println("Slot number "+leaveSlotNumber+" is free");
+                    }else{
+                        System.out.println("Invalid slot number");
                     }
                     break;
             }

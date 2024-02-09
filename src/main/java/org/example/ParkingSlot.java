@@ -25,6 +25,10 @@ public class ParkingSlot {
         this.car = car;
     }
 
+    public void removeCar(){
+        this.car=null;
+    }
+
     public ParkingSlot(int slotNumber){
         this.slotNumber=slotNumber;
     }

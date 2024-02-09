@@ -23,6 +23,14 @@ class ParkingLot {
         }
         return -1;
     }
+
+    public boolean leave(int slotNo){
+        if(slotNo <=0 || slotNo>capacity){
+            return false;
+        }
+        parkingSlots.get(slotNo-1).removeCar();
+        return true;
+    }
     public int getCapacity() {
         return capacity;
     }
