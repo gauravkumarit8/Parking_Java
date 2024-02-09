@@ -21,6 +21,13 @@ public class ParkingSlot {
         this.car = car;
     }
 
+    public void parkCar(Car car) {
+        this.car = car;
+    }
+
+    public ParkingSlot(int slotNumber){
+        this.slotNumber=slotNumber;
+    }
 
     public ParkingSlot(int slotNumber, Car car) {
         this.slotNumber = slotNumber;
