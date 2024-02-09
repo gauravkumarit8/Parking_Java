@@ -24,7 +24,10 @@ public class Main {
                     String registrationNumber=parts[1];
                     String color=parts[2];
                     Car car=new Car(registrationNumber,color);
-                    int slotNumber=parkingLot.parkCar(car);
+                    int slotNumber= 0;
+                    if (parkingLot != null) {
+                        slotNumber = parkingLot.parkCar(car);
+                    }
                     if(slotNumber== -1){
                         System.out.println("Sorry, parking lot is full");
                     }else {
@@ -34,11 +37,20 @@ public class Main {
 
                 case "leave":
                     int leaveSlotNumber=Integer.parseInt(parts[1]);
-                    boolean success= parkingLot.leave(leaveSlotNumber);
+                    boolean success= false;
+                    if (parkingLot != null) {
+                        success = parkingLot.leave(leaveSlotNumber);
+                    }
                     if(success){
                         System.out.println("Slot number "+leaveSlotNumber+" is free");
                     }else{
                         System.out.println("Invalid slot number");
+                    }
+                    break;
+
+                case "status":
+                    if (parkingLot != null) {
+                        parkingLot.printStatus();
                     }
                     break;
             }

@@ -46,4 +46,14 @@ class ParkingLot {
     public void setParkingSlots(List<ParkingSlot> parkingSlots) {
         this.parkingSlots = parkingSlots;
     }
+
+    public void printStatus() {
+        System.out.println("Slot No.  Registration No.  Colour");
+        for(ParkingSlot slot:parkingSlots){
+            Car car=slot.getCar();
+            if(car != null){
+                System.out.println(slot.getSlotNumber()+"  "+car.getRegistrationNo()+"  "+car.getColour());
+            }
+        }
+    }
 }
